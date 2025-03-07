@@ -1,25 +1,38 @@
 # Object Oriented Programming Class - Project: Movie Database
-### author: Dominik Mikołajczyk
 
-## The task the of project
-The aim of the project was to write a console application that responds to commands, uses object-oriented programming model and also meets additional criteria:
-- ability to add or remove a movie from the movie database
-- editing information about particular movie
-- purchasing the movie
-- displaying whole database
-- the entire database should be saved in a text file and read from it on the next startup
+### Author: Dominik Mikołajczyk
 
-## Requirements:        
-.NET 7.0 is required to run this application in IDE, otherwise you have to fix potential errors.
-        
-## Functionalities
-When the main menu is displayed, user has to type the number of desirable action. Invalid input results in cancellation of the action and return to the main menu. Data is saved in JSON format under "Data" folder so it is possible to add, delete or modify database using only text editor. All functionalitites of application are as follows:
-- ADD MOVIE TO DATABASE - user enters the information of movie one by one and after correct input the movie is added to the database.
-- DELETE MOVIE FROM DATABASE - All ID's with movie titles are displayed, the user enters the correct ID of the movie he wants to delete and it is removed from the database. If the movie was in the user's library it is also deleted.
-- EDIT MOVIE INFO - All ID's with movie titles are displayed, the user enters the correct ID of the movie he wants to modify then specifies which information about the movie he would like to modify and provides a new value.
-- EDIT MOVIE WATCH STATUS - All ID's with movie titles from user's library are displayed, the user enters the correct ID of the movie the status he wants to modify then chooses one of three statuses. When movie is marked as watched, current time will be saved in database as status.
-- PURCHASE A MOVIE - All ID's with movie titles are displayed, the user enters the correct ID of the movie he wants to buy. The movie will be added to user's library.
-- DISPLAY MOVIE DATABASE - All movies with their all information will be displayed. The user has an option to filter movies by any of its information category.
-- DISPLAY YOUR LIBRARY - All movies from library with their all information will be displayed. The user has an option to filter movies by any of its information category. Additionaly user can filter the library by movie watch status.
-- DISPLAY MOVIE STATISTICS - displays various statistics about user's library.
-- EXIT THE PROGRAM - exits the program.
+## Project Overview
+
+The Movie Database project is a console application designed to manage a collection of movies using an object-oriented programming approach. The application allows users to perform various operations on a movie database, including adding, removing, editing, and purchasing movies. The database is persisted in a JSON format, ensuring data is saved between sessions.
+
+## Features
+
+- **Add Movie to Database**: Users can input movie details to add a new movie to the database.
+- **Delete Movie from Database**: Users can remove a movie by selecting its ID. If the movie is in the user's library, it will also be removed from there.
+- **Edit Movie Information**: Users can modify details of an existing movie by selecting its ID and specifying the information to update.
+- **Edit Movie Watch Status**: Users can update the watch status of movies in their library, with options for different statuses. When marked as watched, the current time is recorded.
+- **Purchase a Movie**: Users can purchase a movie, adding it to their personal library.
+- **Display Movie Database**: Users can view all movies in the database, with options to filter by various attributes.
+- **Display Your Library**: Users can view all movies in their library, with options to filter by attributes and watch status.
+- **Display Movie Statistics**: Provides various statistics about the user's library.
+- **Exit the Program**: Closes the application.
+
+## Data Persistence
+
+The application saves data in JSON format under the "Data" folder. This allows users to manually edit the database using a text editor if needed. The `JsonParser` class handles loading and saving of both the movie database and the user's library.
+
+## Requirements
+
+- .NET 7.0 is required to run this application in an IDE. Ensure you have the correct version installed to avoid potential errors.
+
+## Usage
+
+Upon launching the application, the main menu is displayed. Users can select actions by typing the corresponding number. Invalid inputs result in cancellation of the action and a return to the main menu.
+
+## Code Structure
+
+- **Movie.cs**: Defines the `Movie` and `PurchasedMovie` classes, including constructors and status management.
+- **JsonParser.cs**: Contains methods for loading and saving the movie database and user library to JSON files.
+- **Database.cs**: Manages the in-memory representation of the movie database and user library. It provides methods for adding, removing, editing, and filtering movies, as well as calculating statistics.
+- **App.cs**: Contains the main application logic, including the user interface and handling of user inputs. It orchestrates the interaction between the user and the database.
